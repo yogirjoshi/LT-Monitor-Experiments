@@ -8,8 +8,11 @@ The extracted data-set used for Google Cluster Data is at https://www.dropbox.co
 
 For MPlayer experiment,the data-set is in this repository in the folder 'MPlayer_Experiment_Results'. Here, the text files contain the truth-values of the loss-tolerant monitors for Property 1 & 2.
 
+We have included the example monitor generated for property [](a->[](b-><>c)) (RVLTLexample1.txt and LossTolerantLTLexample1.txt) in this repository. This corresponds to Propety 1 in Section 6.1
+of the paper.
+
 The implementation of loss-tolerant monitor synthesis algorithm requires RV-LTL monitor as its input. We use LamaConv (http://www.isp.uni-luebeck.de/lamaconv) utility to generate RV-LTL monitors. 
-The inputted RV-LTL monitors can be generated from 'LamaConv' using below command. The filename rltlconv.jar refers to the jar of LamaConv utility.
+The RV-LTL monitors can be generated from 'LamaConv' using below command. The filename rltlconv.jar refers to the jar of LamaConv utility.
 
 java -jar rltlconv.jar "LTL = [](a->[](b-><>c))" --props --mealy --min 
 
@@ -51,7 +54,7 @@ After this, the above output of 'LamaConv' is fed to our tool as per below comma
 cat <RV-LTL-Mon> | java -jar LossTolerantLTLMon.jar rithm.ltmonfactory.LTLMongenerator
 
 The output of our tool is as shown below. It contains transitions for 'chi' symbol denoting unknown element of trace.
-It also has 2 new uknown states in addition to states of RV-LTL monitor.
+This example shows that 2 new uknown states are added in the loss-tolerant monitor in addition to the states of RV-LTL monitor.
 
 Initial=q0
 STATE=q1,OUTPUT=q1=ptrue
@@ -105,6 +108,6 @@ DELTA(X1,"(b)")=X1
 DELTA(X1,chi)=X1
 Total States=5,Transitions=46
 
-We have included the example monitors generated for [](a->[](b-><>c)) and [](a-><>b) in this repository.
+
 
 
