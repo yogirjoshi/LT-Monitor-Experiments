@@ -97,3 +97,5 @@ DELTA(X1,chi)=X1
 Total States=5,Transitions=46
 
 We have included the example monitors generated for [](a->[](b-><>c)) and [](a-><>b) in this repository.
+
+The source code for experiments on MPlayer and Google-cluster-traces can be found in the package rithm.ltmonexperiments
