@@ -6,7 +6,7 @@ rithm.ltmonexperiments. The extracted data-set used for Google Cluster Data is a
 the data-set is in this repository in the folder 'MPlayer_Experiment_Results'. Here, the text files contain the truth-values of the loss-tolerant monitors for Property 1 & 2.
 
 The code requires RV-LTL monitor as its input. We use LamaConv (http://www.isp.uni-luebeck.de/lamaconv) utility to generate RV-LTL monitors. 
-The inputted RV-LTL monitors can be generated from 'LamaConv' using below command.
+The inputted RV-LTL monitors can be generated from 'LamaConv' using below command. The filename rltlconv.jar refers to the jar of LamaConv utility.
 
 java -jar rltlconv.jar "LTL = [](a->[](b-><>c))" --props --mealy --min 
 
