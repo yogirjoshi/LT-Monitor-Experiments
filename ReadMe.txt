@@ -2,10 +2,13 @@
 Loss-tolerant LTL Monitor Generator Implementation and Implementation of Experiments
 
 This repository contains the code for the implementation of the loss-tolerant LTL monitor. The source code for experiments on MPlayer and Google-cluster-traces can be found in the package 
-rithm.ltmonexperiments. The extracted data-set used for Google Cluster Data is at https://www.dropbox.com/s/p0kyutgl2dettnw/Google_cluster_data_extract.txt.tar.gz?dl=0 For MPlayer experiment. 
-the data-set is in this repository in the folder 'MPlayer_Experiment_Results'. Here, the text files contain the truth-values of the loss-tolerant monitors for Property 1 & 2.
+rithm.ltmonexperiments. 
 
-The code requires RV-LTL monitor as its input. We use LamaConv (http://www.isp.uni-luebeck.de/lamaconv) utility to generate RV-LTL monitors. 
+The extracted data-set used for Google Cluster Data is at https://www.dropbox.com/s/p0kyutgl2dettnw/Google_cluster_data_extract.txt.tar.gz?dl=0 
+
+For MPlayer experiment,the data-set is in this repository in the folder 'MPlayer_Experiment_Results'. Here, the text files contain the truth-values of the loss-tolerant monitors for Property 1 & 2.
+
+The implementation of loss-tolerant monitor synthesis algorithm requires RV-LTL monitor as its input. We use LamaConv (http://www.isp.uni-luebeck.de/lamaconv) utility to generate RV-LTL monitors. 
 The inputted RV-LTL monitors can be generated from 'LamaConv' using below command. The filename rltlconv.jar refers to the jar of LamaConv utility.
 
 java -jar rltlconv.jar "LTL = [](a->[](b-><>c))" --props --mealy --min 
