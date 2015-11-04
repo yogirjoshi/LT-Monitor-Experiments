@@ -9,8 +9,11 @@ java -jar rltlconv.jar "LTL = [](a->[](b-><>c))" --props --mealy --min
 Sample output is shown below. Although the machine is described as a mealy machine, our implementation for synthesizing  loss-tolerant monitors requires every state to have a single output symbol. For example, q0 has its output as 'ptrue' for all possible transitions where q0 is the destination state. Similarly, q2 has its output as 'pfalse'.
 
 MEALY {
+
   ALPHABET = ["(a&&c)", "(a&&b)", "(a)", "()", "(a&&b&&c)", "(b&&c)", "(c)", "(b)"]
+  
   STATES = [q0, q1, q2]
+  
   START = q0
   DELTA(q2, "(b)") = q2: pfalse
   DELTA(q2, "(a)") = q2: pfalse
