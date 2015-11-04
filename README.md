@@ -1,15 +1,12 @@
 # LT-Monitor-Experiments
 Loss-tolerant LTL Monitor Generator Implementation and Implementation of Experiments
 
-This repository contains the code for the implementation of the loss-tolerant LTL monitor. The code requires RV-LTL monitor
-as its input. We uses LamaConv (http://www.isp.uni-luebeck.de/lamaconv) to generate RV-LTL monitors. 
+This repository contains the code for the implementation of the loss-tolerant LTL monitor. The code requires RV-LTL monitor as its input. We uses LamaConv (http://www.isp.uni-luebeck.de/lamaconv) to generate RV-LTL monitors. 
 The inputted RVL-LTL monitors can be generated from 'LamaConv' using below command.
 
 java -jar rltlconv.jar "LTL = [](a->[](b-><>c))" --props --mealy --min 
 
-Sample output is shown below. Although the machine is described as a mealy machine, our implementation for synthesizing 
-loss-tolerant monitors requires every state to have a single output symbol. For example, q0 has its output as 'ptrue' 
-for all possible transitions where q0 is the destination state. Similarly, q2 has its output as 'pfalse'.
+Sample output is shown below. Although the machine is described as a mealy machine, our implementation for synthesizing  loss-tolerant monitors requires every state to have a single output symbol. For example, q0 has its output as 'ptrue' for all possible transitions where q0 is the destination state. Similarly, q2 has its output as 'pfalse'.
 
 MEALY {
   ALPHABET = ["(a&&c)", "(a&&b)", "(a)", "()", "(a&&b&&c)", "(b&&c)", "(c)", "(b)"]
