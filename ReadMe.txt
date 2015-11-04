@@ -6,7 +6,9 @@ The inputted RVL-LTL monitors can be generated from 'LamaConv' using below comma
 
 java -jar rltlconv.jar "LTL = [](a->[](b-><>c))" --props --mealy --min 
 
-Sample output is shown below. Although the machine is described as a mealy machine, our implementation for synthesizing  loss-tolerant monitors requires every state to have a single output symbol. For example, q0 has its output as 'ptrue' for all possible transitions where q0 is the destination state. Similarly, q2 has its output as 'pfalse'.
+Sample output is shown below. Although the machine is described as a mealy machine, our implementation for synthesizing  loss-tolerant monitors requires every state to have a single output symbol. 
+For example, q0 has its output as 'ptrue' for all possible transitions where q0 is the destination state. Similarly, q2 has its output as 'pfalse'. If this condition is not satisfied, the outout of 'LamaConv'
+needs to be transformed to meet this condition in order to synthesize the corresponding loss-tolerant monitor.
 
 MEALY {
   ALPHABET = ["(a&&c)", "(a&&b)", "(a)", "()", "(a&&b&&c)", "(b&&c)", "(c)", "(b)"]
