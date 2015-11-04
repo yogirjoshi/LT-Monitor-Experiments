@@ -1,0 +1,29 @@
+MEALY {
+  ALPHABET = ["(a&&c)", "(a&&b)", "(a)", "()", "(a&&b&&c)", "(b&&c)", "(c)", "(b)"]
+  STATES = [q0, q1, q2]
+  START = q0
+  DELTA(q2, "(b)") = q2: pfalse
+  DELTA(q2, "(a)") = q2: pfalse
+  DELTA(q1, "()") = q1: ptrue
+  DELTA(q2, "(a&&b&&c)") = q1: ptrue
+  DELTA(q0, "(b)") = q0: ptrue
+  DELTA(q1, "(a&&c)") = q1: ptrue
+  DELTA(q0, "(a&&b&&c)") = q1: ptrue
+  DELTA(q2, "(c)") = q1: ptrue
+  DELTA(q1, "(c)") = q1: ptrue
+  DELTA(q2, "(a&&b)") = q2: pfalse
+  DELTA(q1, "(b&&c)") = q1: ptrue
+  DELTA(q0, "(a)") = q1: ptrue
+  DELTA(q2, "(b&&c)") = q1: ptrue
+  DELTA(q1, "(a&&b&&c)") = q1: ptrue
+  DELTA(q0, "(c)") = q0: ptrue
+  DELTA(q1, "(a)") = q1: ptrue
+  DELTA(q0, "(a&&c)") = q1: ptrue
+  DELTA(q1, "(a&&b)") = q2: pfalse
+  DELTA(q2, "()") = q2: pfalse
+  DELTA(q0, "(a&&b)") = q2: pfalse
+  DELTA(q0, "(b&&c)") = q0: ptrue
+  DELTA(q1, "(b)") = q2: pfalse
+  DELTA(q2, "(a&&c)") = q1: ptrue
+  DELTA(q0, "()") = q0: ptrue
+}
