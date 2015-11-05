@@ -56,10 +56,6 @@ The output of our tool is as shown below. It contains transitions for 'chi' symb
 This example shows that 2 new uknown states are added in the loss-tolerant monitor in addition to the states of RV-LTL monitor.
 
 Initial=q0
-STATE=q1,OUTPUT=q1=ptrue
-STATE=q2,OUTPUT=q2=pfalse
-STATE=q0,OUTPUT=q0=ptrue
-ALPHABETS=["(a&&c)", "(a&&b)", "(a)", "()", "(a&&b&&c)", "(b&&c)", "(c)", "(b)"]
 DELTA(q2,"(a&&c)")=q1
 DELTA(q2,"(a&&b)")=q2
 DELTA(q2,"(a)")=q2
@@ -105,7 +101,12 @@ DELTA(X1,"(b&&c)")=X1
 DELTA(X1,"(c)")=X1
 DELTA(X1,"(b)")=X1
 DELTA(X1,chi)=X1
-Total States=5,Transitions=46
+STATE=q1,OUTPUT=ptrue
+STATE=q2,OUTPUT=pfalse
+STATE=q0,OUTPUT=ptrue
+STATE=X0,OUTPUT=?
+STATE=X1,OUTPUT=?
+ALPHABETS=["(a&&c)", "(a&&b)", "(a)", "()", "(a&&b&&c)", "(b&&c)", "(c)", "(b)", chi]
 
 
 
