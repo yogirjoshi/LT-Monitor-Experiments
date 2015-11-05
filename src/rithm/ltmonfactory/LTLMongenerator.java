@@ -21,10 +21,12 @@ public class LTLMongenerator {
 	protected HashMap<String, String> stateLabels;
 	protected LinkedHashMap<ArrayList<String>, ArrayList<String>> clusterSigma;
 	protected HashMap<String, HashMap<String, String>> transitions;
+	protected ArrayList<String> chiStates ;
 	protected static int stateCnt = 0;
 	protected String initState;
 	protected long permCount = 0;
 	public LTLMongenerator(){
+		chiStates = new ArrayList<String>();
 		states = new HashMap<Integer, String>();
 		alphabets = new ArrayList<String>();
 		transitions = new HashMap<String, HashMap<String,String>>();
@@ -79,10 +81,7 @@ public class LTLMongenerator {
 				continue;
 			}
 		}
-		for(Map.Entry<String, String> anEntry: stateLabels.entrySet()){
-			System.out.println("STATE=" + anEntry.getKey() + ",OUTPUT=" + anEntry);
-		}
-		System.out.println("ALPHABETS=" + alphabets.toString());
+
 		return true;
 	}
 	public void verifyLTMonitor(){
@@ -121,7 +120,7 @@ public class LTLMongenerator {
 	}
 	public void addChiTransitions(){
 		int chiCnt = 0; String newChiState = null;
-		ArrayList<String> chiStates = new ArrayList<String>();
+
 		for(Map.Entry<ArrayList<String>, ArrayList<String>> anEntry: clusterSigma.entrySet()){
 			ArrayList<String> clusterStates = anEntry.getKey();
 			ArrayList<String> clusterAlpha = anEntry.getValue();
@@ -201,7 +200,7 @@ public class LTLMongenerator {
 			transitionCount++;
 		}
 		transitionCount++;
-		System.out.println("Total States=" + stateCount + ",Transitions=" + transitionCount);
+//		System.out.println("Total States=" + stateCount + ",Transitions=" + transitionCount);
 	}
 	public void transFormRVLTLMonitor(){
 		int n = stateCnt;
@@ -288,6 +287,15 @@ public class LTLMongenerator {
 			}
 		}
 		addChiTransitions();
+		for(Map.Entry<String, String> anEntry: stateLabels.entrySet()){
+			System.out.println("STATE=" + anEntry.getKey() + ",OUTPUT=" + anEntry.getValue());
+		}
+		for(String aState: chiStates)
+		{
+			System.out.println("STATE=" + aState + ",OUTPUT=" + "?");
+		}
+		alphabets.add("chi");
+		System.out.println("ALPHABETS=" + alphabets.toString());
 	}
 	public static void main(String[] args) {
 		
